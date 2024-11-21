@@ -11,7 +11,7 @@ typedef struct {
     char editora[20];
 } livro;
 
-typedef livro *pLivro;
+typedef livro* pLivro;
 //Função pra alocar a memória
   pLivro livro_aloc(int qtde) {
     
@@ -21,6 +21,7 @@ typedef livro *pLivro;
 //Função pra ler os dados
 void livro_ler(pLivro livros, int qtde) {
 	int i;
+	//printf("Dados do %dº livro: \n\n", i+1);
     for(i = 0; i < qtde; i++) {
     	
         getchar();
@@ -44,12 +45,12 @@ void livro_ler(pLivro livros, int qtde) {
 void livro_exibe(pLivro livros, int qtde) {
 	int i;
     for(i = 0; i < qtde; i++) {
-        printf("\nLivro %d: ", i+1);
-        printf("\n\nNome: %s\n", livros[i].nome);
-        printf("ISBN: %s\n", livros[i].isbn);
+        printf("\nLivro %d:\n", i+1);
+        printf("Nome: %s", livros[i].nome);
+        printf("ISBN: %s", livros[i].isbn);
         printf("Preço: R$ %.2f\n", livros[i].preco);
-        printf("\nScore: %d\n", livros[i].score);
-        printf("\nEditora: %s", livros[i].editora);
+        printf("Score: %d\n", livros[i].score);
+        printf("Editora: %s", livros[i].editora);
         
     }
     
@@ -64,6 +65,7 @@ int main()
 	setlocale(LC_ALL, "portuguese");
 	setlocale(LC_NUMERIC, "C");
     int qtde;
+    //printf("Quantidade de livros: ");
     scanf("%i", &qtde);
     
     pLivro livros = livro_aloc(qtde);
